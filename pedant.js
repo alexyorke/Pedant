@@ -1,6 +1,6 @@
 var text = "'The quick brown,fox jumped over the lazy dog, he said, as he noticed that he forgot to close the quote.";
 var MAX_QUOTE_LENGTH = 20;
-
+var ERROR_SEPERATOR = "\n";
 var punctuation = ",.!;";
 var quotes = "\"\'";
 for (var i = 0; i < text.length; i++) {
@@ -8,11 +8,11 @@ for (var i = 0; i < text.length; i++) {
     // check for punctuation
     if (punctuation.indexOf(text[i]) > -1) {
         if ((text[i + 1] != " ") && (i != text.length - 1)) {
-            console.log("punctuation error at index " + i + ":");
+            console.log("PunctuationError: no space after punctuation at index " + i + ":");
             var error = showPrettyError(text, i);
             console.log(error[0]);
             console.log(error[1]);
-            console.log("====================");
+            console.log(ERROR_SEPERATOR);
         }
     }
 
@@ -26,11 +26,11 @@ for (var i = 0; i < text.length; i++) {
         }
 
         if (k > MAX_QUOTE_LENGTH) {
-            console.log("max quote length of " + MAX_QUOTE_LENGTH + " exceeded at index " + j + " (quote started at index " + i + ") :");
-            var error = showPrettyError(text, j);
+            var error = showPrettyError(text, i);
             console.log(error[0]);
             console.log(error[1]);
-            console.log("====================");
+            console.log("QuoteError: max quote length of " + MAX_QUOTE_LENGTH + " exceeded at index " + j + " (quote started at index " + i + "):");
+            console.log(ERROR_SEPERATOR);
         }
 
     }
