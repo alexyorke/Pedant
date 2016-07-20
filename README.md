@@ -1,6 +1,16 @@
 # Pedant
 Find and fix bothersome punctuation and formatting errors in English text.
 
+## Example output
+
+`Input: The quick brown fox,jumped over the lazy dog`
+
+```
+punctuation error at index 16 (missing space after comma):
+...ck brown,fox jumped over...
+           ^
+```
+
 Pedant finds small errors that spell checkers, grammar checkers, and style correctors usually miss. For example, if I start a quote "like this, then forget to end it, continuing writing my readme, pedant will let me know.
 
 Sometimes, you might hit the spacebar  twice, making an ugly   double space. Or, when you hit. a period in the middle of a sentence, or a strange amount of periods the end.. or mix punctuation,.. Pedant will let you know about that too.
