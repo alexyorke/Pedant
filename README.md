@@ -11,7 +11,7 @@ punctuation error at index 16 (missing space after comma):
            ^
 ```
 
-**Pendant is in beta right now, so a ton of stuff is a bit broken. These will get fixed as development continues.**
+**Pedant is in beta right now, so a ton of stuff is a bit broken. These will get fixed as development continues.**
 
 Pedant finds small errors that spell checkers, grammar checkers, and style correctors usually miss. For example, if I start a quote "like this, then forget to end it--writing my readme in the meantime--pedant will let me know.
 
