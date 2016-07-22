@@ -1,14 +1,11 @@
 # Pedant
-Find and fix bothersome punctuation and formatting errors in English text.
 
-## Example output
+**Pedant** finds and fixes punctuation and formatting errors in English texts, that grammar checkers miss.
 
-`Input: The quick brown fox,jumped over the lazy dog`
-
-```
-punctuation error at index 16 (missing space after comma):
-...ck brown,fox jumped over...
-           ^
+```javascript
+pedant.validate('The quick brown fox,jumped over the lazy dog')
+// punctuation error at index 16 (missing space after comma):
+// ...ck brown,fox jumped over...
 ```
 
 **Pedant is in beta right now, so a ton of stuff is a bit broken. These will get fixed as development continues.**
