@@ -1,0 +1,26 @@
+{
+  "name": "pedant",
+  "version": "1.0.0",
+  "description": "Find and fix bothersome punctuation and formatting errors in English texts.",
+  "main": "pedant.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^3.5.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Decagon/Pedant.git"
+  },
+  "author": "Decagon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Decagon/Pedant/issues"
+  },
+  "homepage": "https://github.com/Decagon/Pedant#readme"
+}
