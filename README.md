@@ -40,7 +40,7 @@ Here're some of the features that we would like to add to Pedant in the future:
 - warnings for starting the list with the same word many times
 - warnings when using the same list item multiple times in a row
 - warnings when using the same list item multiple times in a row, with small changes
-- warnings when adding or subtracting words from a quote*
+- warnings when adding or subtracting words from a quote after it has been written, without using the proper [inserted-word-here] notation*
 - inconsistencies with the oxford comma, and with placing periods outside of parenthesises ). and .)
 - warnings when addressing someone by Ms., Mrs., or Miz., and then using the opposite gender pronoun in the next sentence, (excluding non-gender pronouns like "they" or "them") without mentioning any other names and vice-versa
 - warnings when addressing people by their first name if two or more people exist with the same first name but have different last names
@@ -48,3 +48,11 @@ Here're some of the features that we would like to add to Pedant in the future:
 - warnings in novel mode when typing a character's name, but differs by one letter from another character's and is only mentioned once
 - suggestions for spelling out natural numbers smaller than 10, and when starting a sentence with a number
 - support for other languages (e.g. French requires that a space is placed before punctuation like this !)
+- warnings when bolding, italizing, or underlining an entire word, except the last or first **lette**r, or when it extends past the word into the space after it
+- errors when using English quotes around a pure French or other language quote
+- warnings when trying to center text by repeatedly using the spacebar (and option to automatically center)
+- warnings when mathematical notation contains (possibly) ambigious order of operations (e.g. 4*5+2-9/2)
+- warnings when specifying the type of currency, but using an incorrect symbol (it cost $10 pounds) and suggestions to use the currency symbol instead of the word, if both are used
+- warnings when mixing precisions with currency values (e.g. it cost $10 and the other thing cost $20.00), since both could be expressed with no cent values, since they are both zero
+- suggestions to use the phrase "and vice-versa" when a sentence is repeated twice, the other fragment being a reverse of the original. Example: He could buy the apple and sell the orange, or buy the orange and sell the apple.
+- expansions of words which can be shortened using parentheses, and inconsistencies arising from them. Example: James could buy the house with/without the extra chair, becomes James could buy the house with(out) the extra chair.
