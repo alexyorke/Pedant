@@ -3,6 +3,17 @@ var pedant = {
     var MAX_QUOTE_LENGTH = 20;
     var punctuation = [ ',', '.', '!', ';', ';', '"' ];
     var quotes = [ '"', "'" ];
+
+    // regex code modified from auto-generate from regex101.com
+    var tooMuchWhitespace = /\s\s/g;
+    var m;
+
+    while ((m = tooMuchWhitespace.exec(text)) !== null) {
+      showPrettyError(
+          text, m.index,
+          "WhitespaceError: too much whitespace at index " + m.index + ":");
+    }
+
     for (var i = 0; i < text.length; i++) {
       // check for punctuation
       if (punctuation.indexOf(text[i]) > -1) {
