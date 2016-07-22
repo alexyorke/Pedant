@@ -1,8 +1,8 @@
 var text = "'The quick brown,fox jumped over the lazy dog, he said, as he noticed that he forgot to close the quote.";
 var MAX_QUOTE_LENGTH = 20;
 var ERROR_SEPERATOR = "\n";
-var punctuation = ",.!;";
-var quotes = "\"\'";
+var punctuation = [',', '.', '!', ';', ';', '"'];
+var quotes = ['"', "'"];
 for (var i = 0; i < text.length; i++) {
   
     // check for punctuation
