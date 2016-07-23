@@ -32,6 +32,7 @@ Here are some of the features that we are developing to add to Pedant (subject t
 - warnings when using unprintable zero-width characters
 - warnings when trying to center text by repeatedly using the spacebar (and option to automatically center)
 - warnings when adding more than two line breaks after a paragraph
+
 #### Inconsistencies
 - inconsistencies when using the oxford comma
 - inconsistencies when a word is hyphenated and isn't (i.e merry-go-round and merry go round) and variants
