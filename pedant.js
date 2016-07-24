@@ -67,8 +67,7 @@ var pedant = {
             inQuote = true;
           } else {
             if ((i - quoteStartIndex) > MAX_QUOTE_LENGTH) {
-              console.log("QuoteError: quote too long starting at char " +
-                          quoteStartIndex + " to " + i);
+              printError("quote too long", "QuoteError", j, quoteStartIndex);
               inQuote = false;
             }
           }
