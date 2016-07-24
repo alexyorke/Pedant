@@ -1,88 +1,81 @@
 var pedant = {
-  validate : function(text) {
+  validate : function(lines) {
+    var inQuote = false;
+    var currQuoteLength = 0;
+    var quoteStartIndex = 0;
     var MAX_QUOTE_LENGTH = 20;
+    var MAX_PUNCTUATION_LENGTH = 3;
     var punctuation = [ ',', '.', '!', ';', ';', '"' ];
+    var punctuationAmount = 0;
+    var punctuationStartIndex = 0;
     var quotes = [ '"', "'" ];
     var contractionEndings =
         [ 't', 's', 'm', 're', 's', 've', 'd', 'll', 'em' ];
 
-    // regex code modified from auto-generate from regex101.com
-    var tooMuchWhitespace = /\s\s/g;
-    var m;
-
-    while ((m = tooMuchWhitespace.exec(text)) !== null) {
-      showPrettyError(
-          text, m.index,
-          "WhitespaceError: too much whitespace at index " + m.index + ":");
+    function printError(msg, type, line, col) {
+      console.log(msg + ", " + type + ", line " + (line + 1) + ", col " +
+                  (col + 1));
     }
 
-    for (var i = 0; i < text.length; i++) {
-      // check for punctuation
-      if (punctuation.indexOf(text[i]) > -1) {
-        // no space after punctuation
-        if ((text[i + 1] != " ") && (i != text.length - 1)) {
-          showPrettyError(
-              text, i,
-              "PunctuationError: no space after punctuation at index " + i +
-                  ":");
+    lines = lines.split("\n");
+    for (var j = 0; j < lines.length; j++) {
+      text = lines[j];
+      for (var i = 0; i < text.length; i++) {
+        if (punctuation.indexOf(text[i]) > -1) {
+          if (punctuationAmount == 0) {
+            punctuationStartIndex = i;
+          }
+          punctuationAmount++;
+
+          if ((text[i + 1] != ")") && (text[i + 1] != " ")) {
+            printError("no space after punctuation", "PunctuationError", j,
+                       punctuationStartIndex);
+          }
+
+        } else {
+          punctuationStartIndex = 0;
+          punctuationAmount = 0;
+        }
+        if (punctuationAmount > MAX_PUNCTUATION_LENGTH) {
+          printError("too much punctuation", "PunctuationError", j,
+                     punctuationStartIndex);
+
+          punctuationStartIndex = 0;
+          punctuationAmount = 0;
         }
 
-        // check for too much punctuation, except for periods
-        if ((punctuation.indexOf(text[i + 1]) > -1) && (i != text.length - 1) &&
-            (text[i] != ".")) {
-          showPrettyError(
-              text, i,
-              "PunctuationError: too much punctuation at index " + i + ":");
+        // on a space
+        if (" ".indexOf(text[i]) > -1) {
+          if (((text[i + 1] == " ") || (text[i + 1] == ")"))) {
+            printError("too much whitespace", "WhitespaceError", j, i);
+          }
         }
-      }
+        // found a quote that didn't end after sentence
+        if ((text[i + 1] == undefined) && inQuote) {
+          inQuote = false;
+          printError("unclosed quote", "QuoteError", j, quoteStartIndex);
+        }
 
-      // check for missing quotes
-      if ((contractionEndings.indexOf(text[i + 1]) == -1) && (text[i] == "'")) {
+        // okay, we found a quote
         if (quotes.indexOf(text[i]) > -1) {
-          var k = 0;
-          for (j = 1; j < text.length; j++) {
-            if (quotes.indexOf(text[j]) == -1) {
-              k++;
+          // proper contraction detection using xor
+          var a = ((contractionEndings.indexOf(text[i + 1]) == -1));
+          var b = text[i] == "'";
+          var xor = (a ? !b : b);
+          if ((!inQuote) && !xor) {
+            quoteStartIndex = i;
+            inQuote = true;
+          } else {
+            if ((i - quoteStartIndex) > MAX_QUOTE_LENGTH) {
+              console.log("QuoteError: quote too long starting at char " +
+                          quoteStartIndex + " to " + i);
+              inQuote = false;
             }
           }
-
-          if (k > MAX_QUOTE_LENGTH) {
-            var error = showPrettyError(text, i);
-            console.log(error[0]);
-            console.log(error[1]);
-            console.log("QuoteError: max quote length of " + MAX_QUOTE_LENGTH +
-                        " exceeded at index " + j +
-                        " (quote started at index " + i + "):");
-            console.log("\n");
-          }
         }
-      }
-    }
-
-    function showPrettyError(text, index, errorMessage) {
-      var ERROR_SEPERATOR = "\n";
-
-      var contextAmount = 8;
-      var showContextSegment = "...";
-      var errorContext = [
-        showContextSegment +
-            text.substr(index - contextAmount, index + contextAmount) +
-            showContextSegment,
-        pad(Math.max(index + 1 - contextAmount, index + 1), "^", " ")
-            .substr(index - contextAmount - showContextSegment.length)
-      ];
-      console.log(errorContext[0]);
-      console.log(errorContext[1]);
-
-      console.log(errorMessage);
-      console.log(ERROR_SEPERATOR);
-      return errorContext;
-      // http://stackoverflow.com/a/15660515
-      function pad(width, string, padding) {
-        return (width <= string.length) ? string
-                                        : pad(width, padding + string, padding);
       }
     }
   }
 };
+
 module.exports = pedant;
