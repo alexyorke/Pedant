@@ -3,6 +3,8 @@ var pedant = {
     var MAX_QUOTE_LENGTH = 20;
     var punctuation = [ ',', '.', '!', ';', ';', '"' ];
     var quotes = [ '"', "'" ];
+    var contractionEndings =
+        [ 't', 's', 'm', 're', 's', 've', 'd', 'll', 'em' ];
 
     // regex code modified from auto-generate from regex101.com
     var tooMuchWhitespace = /\s\s/g;
@@ -35,22 +37,24 @@ var pedant = {
       }
 
       // check for missing quotes
-      if (quotes.indexOf(text[i]) > -1) {
-        var k = 0;
-        for (j = 1; j < text.length; j++) {
-          if (quotes.indexOf(text[j]) == -1) {
-            k++;
+      if ((contractionEndings.indexOf(text[i + 1]) == -1) && (text[i] == "'")) {
+        if (quotes.indexOf(text[i]) > -1) {
+          var k = 0;
+          for (j = 1; j < text.length; j++) {
+            if (quotes.indexOf(text[j]) == -1) {
+              k++;
+            }
           }
-        }
 
-        if (k > MAX_QUOTE_LENGTH) {
-          var error = showPrettyError(text, i);
-          console.log(error[0]);
-          console.log(error[1]);
-          console.log("QuoteError: max quote length of " + MAX_QUOTE_LENGTH +
-                      " exceeded at index " + j + " (quote started at index " +
-                      i + "):");
-          console.log(ERROR_SEPERATOR);
+          if (k > MAX_QUOTE_LENGTH) {
+            var error = showPrettyError(text, i);
+            console.log(error[0]);
+            console.log(error[1]);
+            console.log("QuoteError: max quote length of " + MAX_QUOTE_LENGTH +
+                        " exceeded at index " + j +
+                        " (quote started at index " + i + "):");
+            console.log("\n");
+          }
         }
       }
     }
