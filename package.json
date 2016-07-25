@@ -1,6 +1,6 @@
 {
   "name": "pedantjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Find and fix bothersome punctuation and formatting errors in English texts.",
   "main": "pedant.js",
   "directories": {
