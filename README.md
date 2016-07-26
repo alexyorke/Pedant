@@ -1,4 +1,4 @@
-[![npm version](https://badge.fury.io/js/pedantjs.svg)](https://badge.fury.io/js/pedantjs)  [![travis cli](https://travis-ci.org/Decagon/pedant.svg)](https://travis-ci.org/Decagon/pedant/branches)  [![downloads](https://img.shields.io/npm/dm/pedantjs.svg)](https://www.npmjs.com/package/pedantjs) [![Join the chat at https://gitter.im/Decagon/pedant](https://badges.gitter.im/Decagon/pedant.svg)](https://gitter.im/Decagon/pedant?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![npm version](https://badge.fury.io/js/pedantjs.svg)](https://badge.fury.io/js/pedantjs)  [![travis cli](https://travis-ci.org/Decagon/pedant.svg)](https://travis-ci.org/Decagon/pedant/branches)  [![downloads](https://img.shields.io/npm/dm/pedantjs.svg)](https://www.npmjs.com/package/pedantjs) [![Join the chat at https://gitter.im/Decagon/pedant](https://badges.gitter.im/Decagon/pedant.svg)](https://gitter.im/Decagon/pedant?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Codewake](https://www.codewake.com/badges/codewake.svg)](https://www.codewake.com/p/pedant-6ffb4c6e-0a50-4587-9882-5e798664c6f3)
 
 # Pedant
 
