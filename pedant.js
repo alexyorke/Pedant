@@ -21,6 +21,12 @@ var pedant = {
     for (var j = 0; j < lines.length; j++) {
       text = lines[j];
       for (var i = 0; i < text.length; i++) {
+        if ("(".indexOf(text[i]) > -1) {
+          if ("(".indexOf(text[i + 1]) > -1) {
+            printError("too many parenthesis", "PunctuationError", j, i);
+          }
+        }
+
         if (punctuation.indexOf(text[i]) > -1) {
           if (punctuationAmount == 0) {
             punctuationStartIndex = i;
