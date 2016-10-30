@@ -21,9 +21,9 @@ Or, when you forget to add a space after a punctuation mark,like this. Overall, 
 Here are some of the features that we are developing to add to Pedant (subject to change.) **Note:** any of these features can be turned on or off, depending on your style of writing:
 ### Parenthesis
 - unnecessarily nested parenthesis ((like this for example))
-- parenthesis nested too deep (this sentence (yes, this one (the one that you are reading, right now) right here) is too complex because there are too many parenthesises (those bracket shaped things))))). We're not writing lisp code.
+- parenthesis nested too deep (this sentence (yes, this one (the one that you are reading, right now) right here) is too complex because there are too many parentheses (those bracket shaped things))))). We're not writing lisp code.
 - parenthesis nested, but nested parenthesis are not square brackets
-- placing periods outside of parenthesises ). and .)
+- placing periods outside of parentheses ). and .)
 
 ### Punctuation and Spacing
 - extra (or not enough) spaces after punctuation
@@ -70,5 +70,5 @@ Here are some of the features that we are developing to add to Pedant (subject t
 
 ### Mathematical Notation and Precision
 - suggestions for spelling out natural numbers smaller than 10, and when starting a sentence with a number
-- warnings when mathematical notation contains (possibly) ambigious order of operations (e.g. 4*5+2-9/2)
+- warnings when mathematical notation contains (possibly) ambiguous order of operations (e.g. 4*5+2-9/2)
 - warnings when mixing precisions with currency values (e.g. it cost $10 and the other thing cost $20.00), since both could be expressed with no cent values, since they are both zero
