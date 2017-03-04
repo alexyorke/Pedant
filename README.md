@@ -30,14 +30,14 @@ Here are some of the features that we are developing to add to Pedant (subject t
 - too many punctuation symbols!!!
 - placing punctuation inside/outside of quote
 - usage of -- instead of an em-dash or another suitable alternative
-- warnings when using the greek semicolon and regular semicolon together
+- warnings when using the Greek semicolon and regular semicolon together
 - warnings when using unprintable zero-width characters
 - warnings when trying to center text by repeatedly using the spacebar (and option to automatically center)
 - warnings when adding more than two line breaks after a paragraph
 
 #### Inconsistencies
 - inconsistencies when using the oxford comma
-- inconsistencies when a word is hyphenated and isn't (i.e merry-go-round and merry go round) and variants
+- inconsistencies when a word is hyphenated and isn't (e.g. merry-go-round and merry go round) and variants
 - when a word is Suddenly capitalized in one sentence not after a period, then suddenly it isn't
 - extra spaces in front of lists
 - extra spaces at the end of sentences, even if the next character isn't punctuation
